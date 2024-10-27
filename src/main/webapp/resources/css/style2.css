@@ -1,0 +1,778 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap);
+@import 'bootstrap/bootstrap';
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+
+*{
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+:root {
+  /* ===== Colors ===== */
+	--body-color: #FFD099;
+	--sidebar-color: #FFF;
+  --primary-color: #0077b6;
+  --primary-color-white: #F6f5FF;
+  --toggle-color: #DDD;
+  --text-color: #707070;
+
+  /* ===== Transition ===== */
+  --tran-02: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.4s ease;
+  --tran-05: all 0.5s ease;
+  	
+}
+
+body {
+  height: 100vh;
+  background: var(--body-color);
+  transition: var(--tran-05);
+	font-family: 'Poppins', sans-serif;
+}
+
+body.dark{
+   /* ===== Colors ===== */
+	--body-color: #18191A;
+	--sidebar-color: #242526;
+  --primary-color: #3A3B3C;
+  --primary-color-white: #3A3B3C;
+  --toggle-color: #FFF;
+  --text-color: #CCC;
+}
+
+/* ===========Sidebar ================ */
+.sidebar{
+  position:  fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  padding: 10px 14px;
+  background: var(--sidebar-color);
+  transition: var(--tran-05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  z-index: 100;
+} 
+
+.sidebar.close{
+  width: 88px;
+}
+
+/* ========== Reusable CSS =========== */
+.sidebar .text{
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: var(--tran-05);
+  white-space: nowrap;
+}
+
+.sidebar.close .text{
+  opacity: 0;
+}
+
+.sidebar .image{
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.sidebar li{
+  height: 50px;
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+}
+
+.sidebar li .icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text{
+  color: var(--text-color);
+  transition: var(--tran-02);
+}
+
+.siderbar header{
+  position: relative;
+}
+
+.sidebar .image-text img{
+  width: 70px;
+  border-radius: 6px;
+}
+
+.sidebar header .image-text{
+  display: flex;
+  align-items: center;
+}
+
+header .image-text .header-text{
+  display: flex;
+  flex-direction: column;
+}
+
+.header-text .name{
+  font-weight: 600;
+}
+
+.header-text .profession{
+  margin-top: -2px;
+}
+
+
+.sidebar header .toggle{
+  position: absolute;
+  top: 4%;
+  right: -11px;
+  transform: translateY(-50%) rotate(180deg);
+  height: 25px;
+  width: 25px;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--sidebar-color);
+  font-size: 19px;
+  transition: var(--tran-03);
+  cursor: pointer;
+}
+
+.sidebar.close header .toggle{
+  transform: translateY(-50%);
+}
+
+body.dark .sidebar header .toggle{
+  
+  color: var(--text-color);
+}
+
+.sidebar li a{
+  margin-top: 100px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration:none;
+  border-radius: 6px;
+  transition: var(--tran-04);
+}
+
+.sidebar li a:hover{
+  background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+  color: var(--sidebar-color);
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+  color: var(--text-color);
+}
+
+.sidebar .menu-bar{
+  
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-bar .mode{
+  position: relative;
+  border-radius: 6px;
+  background: var(--primary-color-white);
+}
+
+.menu-bar .mode .moon-sun{
+  height: 50px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+
+}
+
+.menu-bar .mode i{
+  position: absolute;
+  transition: var(--tran-03);
+}
+
+.menu-bar .mode .bx-sun{
+  opacity: 0;
+
+}
+
+body.dark .menu-bar .mode .bx-sun{
+  opacity: 1;
+}
+body.dark .menu-bar .mode .bx-moon{
+  opacity: 0;;
+}
+
+.menu-bar .mode .toggle-switch{
+  position: absolute;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-width: 60px;
+  cursor: pointer;
+  background: var(--primary-color-light);
+}
+
+.toggle-switch .switch{
+  position: relative;
+  height: 22px;
+  width: 44px;
+  border-radius: 25px;
+  background: var(--toggle-color);
+  transition: var(--tran-05);
+}
+
+.switch::before{
+  content: '';
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  background: var(--sidebar-color);
+  transition: var(--tran-03);
+  
+}
+
+body.dark .switch:before{
+  left: 24px;
+}
+
+.home{
+  position: relative;
+  height: 100vh;
+  margin-left:100px;
+  background: var(--body-color);
+}
+
+.home .text{
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 8px 40px;
+}
+
+.text-text{
+  color: var(--text-color);
+}
+
+.flex-container {
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  flex-wrap: wrap; /* Allow boxes to wrap */
+  justify-content: center;
+}
+
+.box {
+  height: auto; /* Allow boxes to adjust their height based on content */
+  width: 257px; /* Minimum width for each box */
+  background: var(--sidebar-color);
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  position: relative;
+}
+
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+.balance-icon {
+  font-size: 40px; /* Icon size */
+}
+
+.balance-amount {
+  font-size: 24px; /* Balance amount font size */
+  margin-top: 10px; /* Spacing between icon and balance amount */
+}
+
+.balance-description {
+  margin-top: 10px;
+  font-size: 14px; /* Description font size */
+}
+
+
+
+/* ========== Expenses =========== */
+
+
+.box-add-expend {
+  width: 1150px;
+  max-width: 100%;
+  padding: 30px;
+  max-height: 500px;
+  
+}
+
+.add-expenses-text {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: block;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid var(--text-color);
+}
+
+select {
+  background: var(--primary-color-light);
+  color: var(--text-color);
+  border: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #0A73B0;
+  color: #CCC;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #E1AA74;
+  color: #242526;
+}
+
+body.dark button:hover {
+  background: #FFF;
+  color: #707070;
+}
+
+
+.table-box{
+  height: 900px;
+  margin: 50px auto;
+  width: 1150px;
+  max-width: 100%;
+  background: var(--sidebar-color);
+  overflow: auto;
+}
+
+.table-box p{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.table-box .t{
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.table-box .default{
+  background: #0A73B0;
+}
+
+.default p{
+  color: #CCC;
+}
+
+body.dark .table-box .default{
+  background: #FFF;
+}
+
+body.dark .default p{
+  color: #707070;
+}
+
+
+.table-row{
+  display: table;
+  width: 100%;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-right: 2px solid var(--text-color);
+  border-left: 2px solid var(--text-color);
+  
+}
+
+.table-cell{
+  display: table-cell;
+  width: 20%;
+  text-align: center;
+  vertical-align: middle;
+  
+  
+}
+
+.table-cell img{
+  width: 40px; /* Adjust the width as needed */
+  height: auto; /* This ensures the aspect ratio is maintained */
+  display: block; /* Ensures the image is displayed as a block element */
+  margin: auto; /* Centers the image horizontally */
+}
+
+.table-cell span{
+  margin-top: 10px;
+}
+
+.currency{
+  height: auto;
+  width: 500px;
+}
+
+.savings-investment-box{
+  height: auto;
+  background: var(--sidebar-color);
+  padding: 100px;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Media Query for smaller screens */
+
+@media screen and (max-width: 1388px){
+  .box{
+    width: calc(40% - 40px);
+    
+  }
+
+  .table-box{
+    width: 80%;
+  }
+
+  .box-add-expend{
+    width: 80%;
+  }
+
+
+}
+
+@media screen and (max-width: 919px) {
+  .flex-container {
+      flex-direction: column; /* Stack boxes in a single column */
+      align-items: center; /* Center-align boxes */
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+
+  .box {
+      width: calc(100% - 40px); /* Occupy full width */
+  }
+
+  
+
+
+}
+
+/* 
+.flex-container {
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+}
+
+.box {
+  height: auto;
+  width: calc(25% - 40px); 
+  min-width: 257px; 
+  background: var(--sidebar-color);
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5%;
+}
+
+.box-recent-transactions {
+  max-width: 100%; 
+  overflow-y: auto;
+}
+
+.box-add-expend {
+  max-width: 100%; 
+  height: 400px; 
+}
+
+
+@media screen and (max-width: 768px) {
+  .flex-container {
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+
+  .box {
+      width: calc(50% - 40px); 
+  }
+}
+ */
+
+
+/* .flex-container{
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  justify-content: center;
+  
+  
+}
+
+.box{
+  height: 200px;
+  width: 300px;
+  background: var(--sidebar-color);
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5%;
+}
+
+.box-balance{
+  height: 200px;
+  width: 25%;
+  max-width: 350px;
+}
+
+.row-2 .box-recent-transactions .box-add-expend{ 
+  align-items: center;
+}
+
+.box-recent-transactions{
+  height: 900px;
+  width: 900px;
+  overflow-y: auto;
+}
+
+.box-add-expend{
+  width: 600px;
+  height: 700px;
+} */
+
+
+
+
+
+
+
+
+
+.bottom-content .bot1{
+  margin-bottom: 60px; /* Adjust the value as needed */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* table css */
+
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  
+  background: var(--sidebar-color);
+}
+
+.table-responsive {
+  
+  width: 100%;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .table-responsive {
+      display: block;
+  }
+}
+
+
+/* ========== Contact Us =========== */
+
+/* Location Section */
+.location {
+    width: 80%;
+    margin: auto;
+    padding: 80px 0;
+}
+
+.location iframe {
+    width: 100%;
+}
+
+
+/* ========== Footer =========== */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    color: var(--text-color); /* Set text color */
+    transition: var(--tran-05); /* Apply transition */
+}
+
+.footer h4 {
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.footer p {
+    font-size: 12px;
+}
+
+.icons .fa {
+    color: #FF0E00;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+.fa-heart-o {
+    color: #FF0E00;
+}
+
+/* Dark mode styles */
+body.dark .footer {
+    color: #CCC; /* Dark text color */
+}
+
+
+.purpose {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.purpose-col {
+    flex-basis: 31%;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    color: var(--text-color); /* Set font color to text color */
+}
+
+.purpose-col:hover {
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.7);
+}
+
+h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.purpose p {
+    font-size: 14px;
+}
+
+/* Dark mode styles */
+body.dark .purpose-col {
+    background: var(--primary-color);
+    color: #FFF; /* Set font color to white in dark mode */
+}
+
+
+.table-wrap {
+  width: 50%;
+  overflow-x: auto;
+  margin: auto; /* Center the table */
+  background: var(--sidebar-color); /* Dark background color for table */
+  color: var(--text-color); /* Set text color in dark mode */
+}
+
+body.dark .table-wrap {
+  background: var(--sidebar-color); /* Keep dark background color in dark mode */
+  color: var(--text-color); /* Keep text color in dark mode */
+}
+
+.table-responsive {
+  width: 100%;
+}
+
+.table-responsive th,
+.table-responsive td {
+  padding: 8px 12px;
+  text-align: center;
+  border: 1px solid var(--text-color); /* Assuming --text-color is defined */
+}
+
+.table-responsive th {
+  background-color: var(--primary-color); /* Assuming --primary-color is defined */
+  color: #FFF; /* White text color for headers */
+}
+
+

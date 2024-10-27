@@ -1,0 +1,157 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>EnomyFinances</groupId>
+	<artifactId>EnomyFinances</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<!-- Declare Spring Version and Hibernate Version-->
+  <properties>
+	 <spring.version>5.2.0.RELEASE</spring.version>
+	 <hibernate.version>5.2.0.Final</hibernate.version>
+	 <spring.security.version>5.3.4.RELEASE</spring.security.version>
+ </properties>
+  
+  <dependencies>
+
+	  
+	 <!-- Spring Core Framework-->
+	 <dependency>
+		 <groupId>org.springframework</groupId>
+		 <artifactId>spring-context</artifactId>
+		 <version>${spring.version}</version>
+	 </dependency>
+	
+	<!-- Webdevelopment with Spring MVC-->
+	 <dependency>
+		 <groupId>org.springframework</groupId>
+		 <artifactId>spring-webmvc</artifactId>
+		 <version>${spring.version}</version>
+	 </dependency>
+	
+	<!-- To useSpring Data JPA -->
+	<dependency>
+		 <groupId>org.springframework</groupId>
+		 <artifactId>spring-orm</artifactId>
+		 <version>${spring.version}</version>
+	 </dependency>
+	
+	<!-- To useSpring Data JPA -->
+	<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+	<dependency>
+	    <groupId>org.springframework.data</groupId>
+	    <artifactId>spring-data-jpa</artifactId>
+	    <version>2.2.0.RELEASE</version>
+	</dependency>
+	
+	<!-- To use Hibernate as a provider of JPA -->
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>${hibernate.version}</version>
+	</dependency>
+	
+	<!-- To letthe application work with MySQL database, we need to have 
+    the dependecy for MySQL JDBC driver -->
+	<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+	<dependency>
+	    <groupId>com.mysql</groupId>
+	    <artifactId>mysql-connector-j</artifactId>
+	    <version>8.0.33</version>
+	</dependency>
+	
+	<!-- JavaServlet, JSP and JSTL -->
+	 <dependency>
+		 <groupId>javax.servlet</groupId>
+		 <artifactId>javax.servlet-api</artifactId>
+		 <version>3.1.0</version>
+		 <scope>provided</scope>
+	 </dependency>
+	 
+	 <dependency>
+		 <groupId>javax.servlet.jsp</groupId>
+		 <artifactId>javax.servlet.jsp-api</artifactId>
+		 <version>2.3.1</version>
+		 <scope>provided</scope>
+	 </dependency>
+	 
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+		<scope>runtime</scope>
+	</dependency>
+	 
+	<dependency>
+		<groupId>taglibs</groupId>
+		<artifactId>standard</artifactId>
+		<version>1.1.2</version>
+		<scope>runtime</scope>
+	</dependency>
+	
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>3.8.1</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<!-- Spring Security Core -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+		<!-- Spring Security Config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+		<!-- Spring Security Web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+		<!-- to enable Spring Security Tag library in JSP -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<version>${spring.security.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- End of Spring Security -->
+		
+  </dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>17</release>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.3</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>

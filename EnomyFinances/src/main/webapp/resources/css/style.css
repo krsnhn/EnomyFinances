@@ -1,0 +1,112 @@
+:root {
+  /* ===== Colors ===== */
+	--body-color: #E4E9F7;
+	--sidebar-color: #FFF;
+  --primary-color: #695CFE;
+  --primary-color-white: #F6f5FF;
+  --toggle-color: #DDD;
+  --text-color: #707070;
+
+  /* ===== Transition ===== */
+  --tran-02: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.4s ease;
+  --tran-05: all 0.5s ease;
+  	
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	background: var(--body-color) !important;
+}
+.button-primary {
+  background-color: var(--primary-color) !important;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.link {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.form-field {
+  background-color: var(--sidebar-color);
+  border: 1px solid var(--text-color);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
+.call-to-action {
+  background-color: var(--body-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.alert {
+  background-color: var(--body-color);
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.box-area {
+	width: 930px;
+	background: red !important;
+}
+
+.right-box {
+	padding: 40px 30px 40px 40px;
+}
+
+::placeholder {
+	font-size: 16px;
+}
+
+.rounded-4 {
+	border-radius: 20px;
+}
+
+.rounded-5 {
+	border-radius: 30px;
+}
+
+
+.custom-btn {
+    background-color: var(--primary-color-light) !important;
+    color: var(--text-color) !important;
+    font-weight: bold; 
+}
+
+.custom-btn:hover {
+    background-color: var(--primary-color) !important;
+    color: #FFF !important;
+}
+
+.form-control:focus {
+	border-color: var(--primary-color-light) !important;
+	box-shadow: 0 0 0 0.25rem rgba(0, 88, 163, 0.25) !important;
+}
+
+.form-check-input:checked {
+	background-color: var(--primary-color) !important;
+	border-color: var(--primary-color) !important;
+	color: var(--primary-color) !important;
+}
+
+@media only screen and (max-width: 768px) {
+	.box-area {
+		margin: 0 10px;
+	}
+	.left-box {
+		height: 100px;
+		overflow: hidden;
+	}
+	.right-box {
+		padding: 20px;
+	}
+}
